@@ -11,7 +11,7 @@ management:
     web:
       exposure:
 # make sure endpoints are either secured and/or not reachable from outside
-#       include: health, caches, env, info, loggers, metrics, mappings
+       include: health, caches, env, info, loggers, metrics, mappings
 
 spring:
   application:
@@ -20,6 +20,21 @@ spring:
     enabled: false
   jackson:
     default-property-inclusion: non_null
+  datasource:
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 5
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: MaxB1900
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL10Dialect
+      show-sql: 'true'
+    hibernate:
+      ddl-auto: create-drop
 
 springdoc:
   packagesToScan: appsfactory.facebook.comments.controller.api

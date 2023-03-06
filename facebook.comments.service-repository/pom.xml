@@ -19,6 +19,19 @@
 			<artifactId>facebook.comments.service-domain</artifactId>
 			<version>0.1.0-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>appsfactory</groupId>
+			<artifactId>facebook.comments.service-service</artifactId>
+			<version>0.1.0-SNAPSHOT</version>
+		</dependency>
 		<!-- please insert here all dependencies -->
-	</dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+    </dependency>
+  </dependencies>
 </project>
