@@ -1,0 +1,28 @@
+
+server:
+  port: 8080
+  shutdown: graceful
+
+management:
+  endpoint:
+    health:
+      show-details: when_authorized
+  endpoints:
+    web:
+      exposure:
+# make sure endpoints are either secured and/or not reachable from outside
+#       include: health, caches, env, info, loggers, metrics, mappings
+
+spring:
+  application:
+    name: Appsfactory Facebook Comments Test
+  jmx:
+    enabled: false
+  jackson:
+    default-property-inclusion: non_null
+
+springdoc:
+  packagesToScan: appsfactory.facebook.comments.controller.api
+  pathsToMatch: /api/**
+  swagger-ui:
+    path: /swagger-ui/api-docs.html
