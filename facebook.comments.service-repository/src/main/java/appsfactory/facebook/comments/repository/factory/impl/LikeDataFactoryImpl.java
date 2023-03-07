@@ -1,18 +1,18 @@
 package appsfactory.facebook.comments.repository.factory.impl;
 
-import appsfactory.facebook.comments.domain.comment.LikeData;
-import appsfactory.facebook.comments.repository.entity.LikeDataEntity;
+import appsfactory.facebook.comments.domain.comment.Like;
+import appsfactory.facebook.comments.repository.entity.LikeEntity;
 import appsfactory.facebook.comments.repository.factory.ModelFactory;
 
-public class LikeDataFactoryImpl implements ModelFactory<LikeDataEntity, LikeData> {
+public class LikeDataFactoryImpl implements ModelFactory<LikeEntity, Like> {
 
   @Override
-  public LikeDataEntity toEntity(LikeData model) {
+  public LikeEntity toEntity(Like model) {
     return null;
   }
 
   @Override
-  public LikeData toModel(LikeDataEntity entity) {
+  public Like toModel(LikeEntity entity) {
     return null;
   }
 }

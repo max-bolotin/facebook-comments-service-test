@@ -21,11 +21,11 @@
 	</organization>
 
 	<dependencies>
-		<dependency>
+<!--		<dependency>
 			<groupId>appsfactory</groupId>
 			<artifactId>facebook.comments.service-domain</artifactId>
 			<version>0.1.0-SNAPSHOT</version>
-		</dependency>
+		</dependency>-->
 		
 		<dependency>
 			<groupId>appsfactory</groupId>

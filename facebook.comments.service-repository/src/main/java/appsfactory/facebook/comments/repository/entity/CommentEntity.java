@@ -36,7 +36,7 @@ public class CommentEntity {
   @CreatedDate
   private LocalDateTime createdTime;
   @OneToMany
-  private List<LikeEntity> likes;
+  private List<LikedUserEntity> likes;
   @OneToOne
   private PagingEntity paging;
 }

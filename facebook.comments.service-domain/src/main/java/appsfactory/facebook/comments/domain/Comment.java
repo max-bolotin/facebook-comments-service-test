@@ -2,10 +2,13 @@ package appsfactory.facebook.comments.domain;
 
 import appsfactory.facebook.comments.domain.comment.Like;
 import appsfactory.facebook.comments.domain.comment.User;
-import java.util.List;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Builder
 public class Comment {
@@ -13,5 +16,5 @@ public class Comment {
     private User from;
     private String message;
     private String created_time;
-    private List<Like> likes;
+    private Like likes;
 }

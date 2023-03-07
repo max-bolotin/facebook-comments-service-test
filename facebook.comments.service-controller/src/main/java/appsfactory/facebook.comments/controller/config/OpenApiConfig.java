@@ -3,6 +3,7 @@ package appsfactory.facebook.comments.controller.config;
 import io.swagger.v3.oas.models.ExternalDocumentation;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
+import java.util.Properties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.beans.factory.annotation.Value;
@@ -32,6 +33,11 @@ public class OpenApiConfig {
             .version(buildProperties.getVersion()))
         .externalDocs(new ExternalDocumentation()
             .description(applicationName + " API Documentation"));
+  }
+
+  @Bean
+  public BuildProperties buildProperties(Properties properties) {
+    return new BuildProperties(properties);
   }
 
 }

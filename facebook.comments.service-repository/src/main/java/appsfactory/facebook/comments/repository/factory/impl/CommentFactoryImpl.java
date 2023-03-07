@@ -6,7 +6,7 @@ import appsfactory.facebook.comments.repository.factory.ModelFactory;
 import java.time.LocalDateTime;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("CommentFactoryImpl")
 public class CommentFactoryImpl implements ModelFactory<CommentEntity, Comment> {
 
   @Override
@@ -15,7 +15,7 @@ public class CommentFactoryImpl implements ModelFactory<CommentEntity, Comment> 
         .commentId(comment.getId())
         .message(comment.getMessage())
 //        .user(userService.findById(comment.getFrom()))
-        .createdTime(LocalDateTime.parse(comment.getCreated_time()))
+//        .createdTime(LocalDateTime.parse(comment.getCreated_time()))
 //        .likes(likeService.findAllById(comment.getLikes()))
         .build();
   }
@@ -27,7 +27,7 @@ public class CommentFactoryImpl implements ModelFactory<CommentEntity, Comment> 
         .id(commentEntity.getCommentId())
         .message(commentEntity.getMessage())
 //        .from(commentEntity.getUser().getId())
-        .created_time(String.valueOf(commentEntity.getCreatedTime()))
+//        .created_time(String.valueOf(commentEntity.getCreatedTime()))
 /*        .likes(commentEntity
             .getLikes()
             .stream()

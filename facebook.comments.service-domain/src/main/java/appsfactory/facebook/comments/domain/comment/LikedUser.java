@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Builder
-public class User {
+public class LikedUser {
 
-  private String name;
   private String id;
+  private String name;
 }
