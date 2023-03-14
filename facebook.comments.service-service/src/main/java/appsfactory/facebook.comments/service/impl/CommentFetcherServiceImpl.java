@@ -3,6 +3,7 @@ package appsfactory.facebook.comments.service.impl;
 
 import appsfactory.facebook.comments.domain.Comment;
 import appsfactory.facebook.comments.domain.comment.CommentData;
+import appsfactory.facebook.comments.repository.converter.CommentConverter;
 import appsfactory.facebook.comments.repository.entity.CommentEntity;
 import appsfactory.facebook.comments.repository.CommentRepository;
 import appsfactory.facebook.comments.repository.factory.ModelFactory;
@@ -21,14 +22,16 @@ import org.springframework.stereotype.Service;
 public class CommentFetcherServiceImpl implements CommentFetcherService {
   private static final String URL = "https://edit.pp.ua/jsnexmpl/incoming-comments.json";
   private final HttpClient httpClient;
+  private final CommentConverter commentConverter;
   @Qualifier(value = "CommentFactoryImpl")
   private final ModelFactory<CommentEntity, Comment> commentFactory;
   private final CommentRepository commentRepository;
 
   public CommentFetcherServiceImpl(HttpClient httpClient,
-      ModelFactory<CommentEntity, Comment> commentFactory,
+      CommentConverter commentConverter, ModelFactory<CommentEntity, Comment> commentFactory,
       CommentRepository commentRepository) {
     this.httpClient = httpClient;
+    this.commentConverter = commentConverter;
     this.commentFactory = commentFactory;
     this.commentRepository = commentRepository;
   }
@@ -72,7 +75,7 @@ public class CommentFetcherServiceImpl implements CommentFetcherService {
 
   @Override
   public CommentEntity save(Comment comment) {
-    CommentEntity commentEntity = commentFactory.toEntity(comment);
+    CommentEntity commentEntity = commentConverter.convert(comment);
     System.out.println(commentEntity.getMessage());
     return commentRepository.save(commentEntity);
   }
