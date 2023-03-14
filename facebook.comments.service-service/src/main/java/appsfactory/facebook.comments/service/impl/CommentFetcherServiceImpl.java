@@ -10,11 +10,19 @@ import appsfactory.facebook.comments.repository.factory.ModelFactory;
 import appsfactory.facebook.comments.service.CommentFetcherService;
 import appsfactory.facebook.comments.service.HttpClient;
 import com.google.gson.Gson;
+import com.restfb.DefaultFacebookClient;
+import com.restfb.FacebookClient;
+import com.restfb.Parameter;
+import com.restfb.Version;
+import com.restfb.json.JsonObject;
+import com.restfb.types.User;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +34,7 @@ public class CommentFetcherServiceImpl implements CommentFetcherService {
   @Qualifier(value = "CommentFactoryImpl")
   private final ModelFactory<CommentEntity, Comment> commentFactory;
   private final CommentRepository commentRepository;
+  private FacebookClient facebookClient;
 
   public CommentFetcherServiceImpl(HttpClient httpClient,
       CommentConverter commentConverter, ModelFactory<CommentEntity, Comment> commentFactory,
@@ -40,6 +49,8 @@ public class CommentFetcherServiceImpl implements CommentFetcherService {
   @Override
   public CommentData fetchComments(String postId) {
 
+    String accessToken = "EAAxqopM0PBgBALfWY7CknFWtO64WmaSr3lfqvLhqqenI4In1Ju6737whhvy209CFRX5c3JxHZB6hx87xMWeMJWfuaz0ZAmAV2NfECb96BO6NtYmypBPZA6RTSPRXmUgGMuv3z6agZB5wluLE3ZBMqLnYVRsoERf1VzLQYXylbkLxvnXDVZBT0MUpP3R1Wisc1TDTE2Ld6sxQZDZD";
+    restFb(accessToken);
 
     CommentData data = parseJsonWithGson(URL);
 
@@ -78,5 +89,11 @@ public class CommentFetcherServiceImpl implements CommentFetcherService {
     CommentEntity commentEntity = commentConverter.convert(comment);
     System.out.println(commentEntity.getMessage());
     return commentRepository.save(commentEntity);
+  }
+
+  public void restFb(String accessToken) {
+    facebookClient = new DefaultFacebookClient(accessToken, Version.VERSION_16_0);
+    User user = facebookClient.fetchObject("me?fields=birthday", User.class);
+    System.out.println(user.toString());
   }
 }
