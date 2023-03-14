@@ -21,12 +21,7 @@
 	</organization>
 
 	<dependencies>
-<!--		<dependency>
-			<groupId>appsfactory</groupId>
-			<artifactId>facebook.comments.service-domain</artifactId>
-			<version>0.1.0-SNAPSHOT</version>
-		</dependency>-->
-		
+
 		<dependency>
 			<groupId>appsfactory</groupId>
 			<artifactId>facebook.comments.service-repository</artifactId>
@@ -46,6 +41,12 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.10.1</version>
+			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 
