@@ -49,7 +49,7 @@ public class CommentFetcherServiceImpl implements CommentFetcherService {
   @Override
   public CommentData fetchComments(String postId) {
 
-    String accessToken = "EAAxqopM0PBgBALfWY7CknFWtO64WmaSr3lfqvLhqqenI4In1Ju6737whhvy209CFRX5c3JxHZB6hx87xMWeMJWfuaz0ZAmAV2NfECb96BO6NtYmypBPZA6RTSPRXmUgGMuv3z6agZB5wluLE3ZBMqLnYVRsoERf1VzLQYXylbkLxvnXDVZBT0MUpP3R1Wisc1TDTE2Ld6sxQZDZD";
+    String accessToken = "<access_token>";
     restFb(accessToken);
 
     CommentData data = parseJsonWithGson(URL);
